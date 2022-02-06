@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
+import swal from 'sweetalert';
 class EditStudent extends Component 
 {
     state = {
@@ -47,7 +47,12 @@ class EditStudent extends Component
         
         if(res.data.status === 200)
         {
-            console.log(res.data.message);
+            swal({
+                title: "You're student edit Success!",
+                text: res.data.message,
+                icon: "success",
+                button: "Ok!",
+              });
             document.getElementById('updatebtn').disabled = false;
             document.getElementById('updatebtn').innerText = "Update Student";
         }
