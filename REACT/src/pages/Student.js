@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-
+import swal from 'sweetalert';
 class Student extends Component 
 {
     state = {
@@ -28,7 +28,13 @@ class Student extends Component
         if(res.data.status === 200)
         {
             thidClickedFunda.closest("tr").remove();
-            console.log(res.data.message);
+            // console.log(res.data.message);
+            swal({
+                title: "You're student delete Success!",
+                text: res.data.message,
+                icon: "success",
+                button: "Ok!",
+              });
         }
     }
 
